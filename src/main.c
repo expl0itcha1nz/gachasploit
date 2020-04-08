@@ -116,7 +116,7 @@ void printusage(char* progname){
 	fprintf(stderr,"Usage: %s [-h] [--gems GEMS] [--level LEVEL]\n\n",progname);
 	fprintf(stderr,"Required arguments:\n");
 	fprintf(stderr," -g, --gems       | Generate this amount of gems\n");
-	fprintf(stderr," -l, --level      | Generate this amount of gems\n\n");
+	fprintf(stderr," -l, --level      | Generate this amount of level\n\n");
 	fprintf(stderr,"Optional arguments:\n");
 	fprintf(stderr," -h,  --help      | Print usage\n");
 	fprintf(stderr," -v,  --version   | Print version\n");
@@ -124,6 +124,8 @@ void printusage(char* progname){
 }
 
 void changelog(){
+	printf("Version 1.1.3:\n");
+	printf("  - Fixed spelling/grammatical errors\n");
 	printf("Version 1.1.2:\n");
 	printf("  - Minor bug fixes\n");
 	printf("Version 1.1.0:\n");
