@@ -2,7 +2,7 @@
 GachaSploit is a series of exploits developed by expl0itcha1nz for the game "Gacha Life" created by the mobile game company Lunime. These exploits can be utilized to generate gems and XP/levels in-game.
 
 ## Installation
-You must have [Git](https://git-scm.com) installed in order to download and execute GachaSploit. To download it, simply open your Linux terminal and execute:
+You must have [Git](https://git-scm.com) installed in order to download and execute GachaSploit. To download GachaSploit, simply open your Linux terminal and execute:
 ```bash
 git clone https://github.com/expl0itcha1nz/gachasploit
 ```
