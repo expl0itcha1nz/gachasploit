@@ -16,7 +16,7 @@ Usage: ./gachasploit [-h] [--gems GEMS] [--level LEVEL]
 
 Required arguments:
  -g, --gems       | Generate this amount of gems
- -l, --level      | Generate this amount of gems
+ -l, --level      | Generate this amount of levels
 
 Optional arguments:
  -h,  --help      | Print usage

@@ -116,7 +116,7 @@ void printusage(char* progname){
 	fprintf(stderr,"Usage: %s [-h] [--gems GEMS] [--level LEVEL]\n\n",progname);
 	fprintf(stderr,"Required arguments:\n");
 	fprintf(stderr," -g, --gems       | Generate this amount of gems\n");
-	fprintf(stderr," -l, --level      | Generate this amount of level\n\n");
+	fprintf(stderr," -l, --level      | Generate this amount of levels\n\n");
 	fprintf(stderr,"Optional arguments:\n");
 	fprintf(stderr," -h,  --help      | Print usage\n");
 	fprintf(stderr," -v,  --version   | Print version\n");
