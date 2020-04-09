@@ -31,4 +31,4 @@ As shown in the above instructional text, using `-g` and `-l` will allow you to 
 ```
 
 ## Limitations
-The limit for the amount of gems you can generate in this program is 2,147,483,647 - which is the 32-bit integer limit. The limit for the amount of levels you can generate is 151.
+The limit for the amount of gems you can generate in this program is 2,147,483,647 - which is the 32-bit integer limit. The limit for the amount of levels you can generate is 151. This program only works on Android on the latest version of Gacha Life.
