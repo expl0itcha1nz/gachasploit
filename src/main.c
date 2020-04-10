@@ -33,24 +33,99 @@ char* concat(char* s1,char* s2){
 
 char* levelvars(int level){
 	char* lvars = "";
-	int qcxpnum = 1;
-	int twoamnt = level - 1;
-	int oneamnt = 150 - (level-1);
-	for(int i = 0; i < twoamnt; i++){
-		size_t needednew = snprintf(NULL,0,"&qc%i=2&xp%i=0",qcxpnum,qcxpnum);
-		char* newstr = malloc(needednew+1);
-		sprintf(newstr,"&qc%i=2&xp%i=0",qcxpnum,qcxpnum);
-		lvars = concat(lvars,newstr);
-		free(newstr);
-		qcxpnum++;
-	}
-	for(int i = 0; i < oneamnt; i++){
-		size_t needednew = snprintf(NULL,0,"&qc%i=1&xp%i=0",qcxpnum,qcxpnum);
-		char* newstr = malloc(needednew+1);
-		sprintf(newstr,"&qc%i=1&xp%i=0",qcxpnum,qcxpnum);
-		lvars = concat(lvars,newstr);
-		free(newstr);
-		qcxpnum++;
+	if(level < 152){
+		int qcxpnum = 1;
+		int twoamnt = level - 1;
+		int oneamnt = 150 - (level-1);
+		for(int i = 0; i < twoamnt; i++){
+			size_t needednew = snprintf(NULL,0,"&qc%i=2&xp%i=0",qcxpnum,qcxpnum);
+			char* newstr = malloc(needednew+1);
+			sprintf(newstr,"&qc%i=2&xp%i=0",qcxpnum,qcxpnum);
+			lvars = concat(lvars,newstr);
+			free(newstr);
+			qcxpnum++;
+		}
+		for(int i = 0; i < oneamnt; i++){
+			size_t needednew = snprintf(NULL,0,"&qc%i=1&xp%i=0",qcxpnum,qcxpnum);
+			char* newstr = malloc(needednew+1);
+			sprintf(newstr,"&qc%i=1&xp%i=0",qcxpnum,qcxpnum);
+			lvars = concat(lvars,newstr);
+			free(newstr);
+			qcxpnum++;
+		}
+	} else{
+		int qcnum = 1;
+		for(int i = 0; i < 150; i++){
+			size_t needednew = snprintf(NULL,0,"&qc%i=2",qcnum);
+			char* newstr = malloc(needednew+1);
+			sprintf(newstr,"&qc%i=2",qcnum);
+			lvars = concat(lvars,newstr);
+			free(newstr);
+			qcnum++;
+		}
+		level -= 151;
+		int xpnum = 1;
+		while(true){
+			if((level-7) > -1){
+				size_t needednew = snprintf(NULL,0,"&xp%i=41001100",xpnum);
+				char* newstr = malloc(needednew+1);
+				sprintf(newstr,"&xp%i=41001100",xpnum);
+				lvars = concat(lvars,newstr);
+				free(newstr);
+				xpnum++;
+				level -= 7;
+			} else if((level-6) > -1){
+				size_t needednew = snprintf(NULL,0,"&xp%i=3101100",xpnum);
+				char* newstr = malloc(needednew+1);
+				sprintf(newstr,"&xp%i=3101100",xpnum);
+				lvars = concat(lvars,newstr);
+				free(newstr);
+				xpnum++;
+				level -= 6;
+			} else if((level-5) > -1){
+				size_t needednew = snprintf(NULL,0,"&xp%i=1751100",xpnum);
+				char* newstr = malloc(needednew+1);
+				sprintf(newstr,"&xp%i=1751100",xpnum);
+				lvars = concat(lvars,newstr);
+				free(newstr);
+				xpnum++;
+				level -= 5;
+			} else if((level-4) > -1){
+				size_t needednew = snprintf(NULL,0,"&xp%i=851100",xpnum);
+				char* newstr = malloc(needednew+1);
+				sprintf(newstr,"&xp%i=851100",xpnum);
+				lvars = concat(lvars,newstr);
+				free(newstr);
+				xpnum++;
+				level -= 4;
+			} else if((level-3) > -1){
+				size_t needednew = snprintf(NULL,0,"&xp%i=351100",xpnum);
+				char* newstr = malloc(needednew+1);
+				sprintf(newstr,"&xp%i=351100",xpnum);
+				lvars = concat(lvars,newstr);
+				free(newstr);
+				xpnum++;
+				level -= 3;
+			} else if((level-2) > -1){
+				size_t needednew = snprintf(NULL,0,"&xp%i=101100",xpnum);
+				char* newstr = malloc(needednew+1);
+				sprintf(newstr,"&xp%i=101100",xpnum);
+				lvars = concat(lvars,newstr);
+				free(newstr);
+				xpnum++;
+				level -= 2;
+			} else if((level-1) > -1){
+				size_t needednew = snprintf(NULL,0,"&xp%i=6300",xpnum);
+				char* newstr = malloc(needednew+1);
+				sprintf(newstr,"&xp%i=6300",xpnum);
+				lvars = concat(lvars,newstr);
+				free(newstr);
+				xpnum++;
+				level--;
+			} else{
+				break;
+			}
+		}
 	}
 	return lvars;
 }
@@ -115,8 +190,8 @@ void printlogo(){
 void printusage(char* progname){
 	fprintf(stderr,"Usage: %s [-h] [--gems GEMS] [--level LEVEL]\n\n",progname);
 	fprintf(stderr,"Required arguments:\n");
-	fprintf(stderr," -g, --gems       | Generate this amount of gems\n");
-	fprintf(stderr," -l, --level      | Generate this amount of levels\n\n");
+	fprintf(stderr," -g,  --gems      | Generate this amount of gems\n");
+	fprintf(stderr," -l,  --level     | Generate this amount of levels\n\n");
 	fprintf(stderr,"Optional arguments:\n");
 	fprintf(stderr," -h,  --help      | Print usage\n");
 	fprintf(stderr," -v,  --version   | Print version\n");
@@ -124,6 +199,8 @@ void printusage(char* progname){
 }
 
 void changelog(){
+	printf("Version 1.2.0:\n");
+	printf("  - Added levels over 151\n");
 	printf("Version 1.1.3:\n");
 	printf("  - Fixed spelling/grammatical errors\n");
 	printf("Version 1.1.2:\n");
@@ -165,7 +242,7 @@ int main(int argc,char** argv){
 		printlogo();
 		printf("\033[34;1m[+]\033[0m Generating...\n");
 		if(gems && level){
-			if(level < 152){
+			if(level < 1202){
 				int savecode = profilehack(gems,level);
 				if(savecode != 0){
 					printf("\033[34;1m[+]\033[0m Done!\n");
@@ -174,7 +251,7 @@ int main(int argc,char** argv){
 					printf("\033[31;1m[!]\033[0m Error: Unknown error occurred, please try again later.\n");
 				}
 			} else{
-				printf("\033[31;1m[!]\033[0m Error: Level amount cannot be over 151 currently.\n");
+				printf("\033[31;1m[!]\033[0m Error: Level amount cannot be over 1,201.\n");
 			}
 		} else{
 			printf("\033[31;1m[!]\033[0m Error: Gem and level amount required.\n");
