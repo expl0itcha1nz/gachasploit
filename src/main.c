@@ -209,6 +209,8 @@ void printusage(char* progname){
 }
 
 void changelog(){
+	printf("Version 1.2.1:\n");
+	printf("  - Optimization\n");
 	printf("Version 1.2.0:\n");
 	printf("  - Added levels over 151\n");
 	printf("Version 1.1.3:\n");
@@ -239,7 +241,7 @@ int main(int argc,char** argv){
 				printusage(argv[0]);
 				return 0;
 			} else if(strcmp(arg,"-v") == 0 || strcmp(arg,"--version") == 0){
-				printf("Version 1.1.2 (Stable)\nGacha Exploit Enthusiasts, 2020\n");
+				printf("Version 1.2.1 (Stable)\nGacha Exploit Enthusiasts, 2020\n");
 				return 0;
 			} else if(strcmp(arg,"-cl") == 0 || strcmp(arg,"--changelog") == 0){
 				changelog();
