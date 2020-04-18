@@ -126,6 +126,16 @@ char* levelvars(int level){
 				break;
 			}
 		}
+		if(xpnum < 150){
+			for(int i = 0; i < (xpnum-150); i++){
+				size_t needednew = snprintf(NULL,0,"&xp%i=0",xpnum);
+				char* newstr = malloc(needednew+1);
+				sprintf(newstr,"&xp%i=0",xpnum);
+				lvars = concat(lvars,newstr);
+				free(newstr);
+				xpnum++;
+			}
+		}
 	}
 	return lvars;
 }
