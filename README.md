@@ -7,7 +7,7 @@ You must have [Git](https://git-scm.com) installed in order to download and exec
 git clone https://github.com/expl0itcha1nz/gachasploit
 ```
 ## Usage
-**GachaSploit is currently only compatible with Linux. If you are on Windows or MacOS, please use the online demo.**
+**GachaSploit is currently only compatible with Linux. If you are on Windows or MacOS, please use the [online demo](https://gachasploit.ga/demo.html).**
 
 After using `git clone`, `cd` to `gachasploit` and type `make`. After this, you simply have to type `./gachasploit` and instructions will appear before you.
 
